@@ -13,6 +13,7 @@
 		B35ACE8F1F67A20500B30CB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35ACE8D1F67A20500B30CB3 /* Main.storyboard */; };
 		B35ACE911F67A20500B30CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35ACE901F67A20500B30CB3 /* Assets.xcassets */; };
 		B35ACE941F67A20500B30CB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35ACE921F67A20500B30CB3 /* LaunchScreen.storyboard */; };
+		B35ACE9E1F67A80100B30CB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35ACE9C1F67A7F300B30CB3 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B35ACE901F67A20500B30CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B35ACE931F67A20500B30CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B35ACE951F67A20500B30CB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B35ACE9C1F67A7F300B30CB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B35ACE9E1F67A80100B30CB3 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			children = (
 				B35ACE831F67A20500B30CB3 /* maskAnimation */,
 				B35ACE821F67A20500B30CB3 /* Products */,
+				B35ACE9B1F67A7F300B30CB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +81,14 @@
 				B35ACE851F67A20500B30CB3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B35ACE9B1F67A7F300B30CB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B35ACE9C1F67A7F300B30CB3 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +287,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HZA79NQ8N6;
 				INFOPLIST_FILE = maskAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sweatshop.maskAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,6 +300,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HZA79NQ8N6;
 				INFOPLIST_FILE = maskAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sweatshop.maskAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
