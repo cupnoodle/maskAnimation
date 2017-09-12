@@ -37,7 +37,7 @@ CAShapeLayer *maskLayer;
 - (void)animateMask:(CAShapeLayer *)mask  forImageView:(UIImageView *)image{
 	
 	// https://stackoverflow.com/questions/11391058/simply-mask-a-uiview-with-a-rectangle
-	
+	// https://stackoverflow.com/questions/1166721/what-does-fillmode-do-exactly
 	
 	if(image == nil){
 		return;
@@ -61,19 +61,33 @@ CAShapeLayer *maskLayer;
 	
 	// key path must put "path" to animate the path property
 	CABasicAnimation *leftToRightAnim = [CABasicAnimation animationWithKeyPath:@"path"];
-	leftToRightAnim.fromValue = (id)mask.path;
+	leftToRightAnim.fromValue = (id)startPath.CGPath;
 	leftToRightAnim.toValue = (id)middlePath.CGPath;
-	leftToRightAnim.duration = 2.0;
+	leftToRightAnim.beginTime = 0.0;
+	leftToRightAnim.duration = 1.0;
 	leftToRightAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//	leftToRightAnim.fillMode = kCAFillModeForwards;
 	
 	// Create the end path
 	CGRect endRect =CGRectMake(image.frame.size.width - 1.0, 0, 1.0, image.frame.size.height);
 	
 	UIBezierPath *endPath = [UIBezierPath bezierPathWithRect:endRect];
 	
+	CABasicAnimation *leftToRightAnim2 = [CABasicAnimation animationWithKeyPath:@"path"];
+	leftToRightAnim2.fromValue = (id)middlePath.CGPath;
+	leftToRightAnim2.toValue = (id)endPath.CGPath;
+	leftToRightAnim2.beginTime = 1.5;
+	leftToRightAnim2.duration = 1.0;
+	leftToRightAnim2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+	CAAnimationGroup *leftToRightAnimGroup = [[CAAnimationGroup alloc] init];
+	leftToRightAnimGroup.animations = @[leftToRightAnim, leftToRightAnim2 ];
+	leftToRightAnimGroup.duration = 2.5;
+	leftToRightAnimGroup.repeatCount = HUGE_VALF;
+//	leftToRightAnim2.fillMode = kCAFillModeForwards;
 	
 	
-	[mask addAnimation:leftToRightAnim forKey:@"animatePath"];
+	[mask addAnimation:leftToRightAnimGroup forKey:@"animatePath"];
 	
 	// assign path after animation ends
 	mask.path = middlePath.CGPath;
