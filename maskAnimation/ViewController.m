@@ -46,7 +46,7 @@ CAShapeLayer *maskLayer;
 	mask = [[CAShapeLayer alloc] init];
 	
 	// Create a path with the rectangle in it.
-	CGRect maskRect = CGRectMake(0, 0, 10, image.frame.size.height);
+	CGRect maskRect = CGRectMake(0, 0, 1, image.frame.size.height);
 
 	UIBezierPath *startPath = [UIBezierPath bezierPathWithRect:maskRect];
 	
@@ -55,21 +55,28 @@ CAShapeLayer *maskLayer;
 	image.layer.mask = mask;
 //	image.layer.masksToBounds = YES;
 	
-	// Create the end path
-	CGRect endRect = CGRectMake(0, 0, image.frame.size.width, image.frame.size.height);
-	UIBezierPath *endPath = [UIBezierPath bezierPathWithRect:endRect];
+	// Create the middle path
+	CGRect middleRect = CGRectMake(0, 0, image.frame.size.width, image.frame.size.height);
+	UIBezierPath *middlePath = [UIBezierPath bezierPathWithRect:middleRect];
 	
 	// key path must put "path" to animate the path property
 	CABasicAnimation *leftToRightAnim = [CABasicAnimation animationWithKeyPath:@"path"];
 	leftToRightAnim.fromValue = (id)mask.path;
-	leftToRightAnim.toValue = (id)endPath.CGPath;
+	leftToRightAnim.toValue = (id)middlePath.CGPath;
 	leftToRightAnim.duration = 2.0;
 	leftToRightAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	// Create the end path
+	CGRect endRect =CGRectMake(image.frame.size.width - 1.0, 0, 1.0, image.frame.size.height);
+	
+	UIBezierPath *endPath = [UIBezierPath bezierPathWithRect:endRect];
+	
+	
 	
 	[mask addAnimation:leftToRightAnim forKey:@"animatePath"];
 	
 	// assign path after animation ends
-	mask.path = endPath.CGPath;
+	mask.path = middlePath.CGPath;
 }
 
 @end
