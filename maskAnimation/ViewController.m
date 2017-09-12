@@ -46,15 +46,21 @@ CAShapeLayer *maskLayer;
 	mask = [[CAShapeLayer alloc] init];
 	
 	// Create a path with the rectangle in it.
-	CGRect maskRect = CGRectMake(0, 0, 100, 100);
-	CGPathRef path = CGPathCreateWithRect(maskRect, NULL);
+	CGRect maskRect = CGRectMake(0, 0, 100, image.frame.size.height);
+
+	UIBezierPath *startPath = [UIBezierPath bezierPathWithRect:maskRect];
 	
-	
-	mask.path = path;
-	CGPathRelease(path);
+	mask.path = startPath.CGPath;
 	
 	image.layer.mask = mask;
 	image.layer.masksToBounds = YES;
+	
+	// Create the end path
+	CGRect endRect = CGRectMake(0, 0, image.frame.size.width, image.frame.size.height);
+//	path = CGPathCreateWithRect(endRect, NULL);
+	
+	
+
 	
 
 	
