@@ -34,10 +34,15 @@ CAShapeLayer *maskLayer;
 	[self animateMask:maskLayer forImageView:self.tailsImage];
 }
 
+- (IBAction)stopTapped:(id)sender {
+	[self.tailsImage.layer.mask removeAllAnimations];
+}
+
 - (void)animateMask:(CAShapeLayer *)mask  forImageView:(UIImageView *)image{
 	
 	// https://stackoverflow.com/questions/11391058/simply-mask-a-uiview-with-a-rectangle
 	// https://stackoverflow.com/questions/1166721/what-does-fillmode-do-exactly
+	// https://stackoverflow.com/questions/554997/cancel-a-uiview-animation
 	
 	if(image == nil){
 		return;

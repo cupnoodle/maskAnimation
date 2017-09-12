@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tails" translatesAutoresizingMaskIntoConstraints="NO" id="6j5-Jx-FLS">
-                                <rect key="frame" x="68" y="188" width="184" height="192"/>
+                                <rect key="frame" x="68" y="128" width="184" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="Bem-ob-hdQ"/>
                                     <constraint firstAttribute="height" constant="192" id="d6A-fc-4wy"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6d-Wn-FBQ">
-                                <rect key="frame" x="106.5" y="440" width="108" height="32"/>
+                                <rect key="frame" x="106" y="380" width="108" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Animate Mask">
                                     <color key="titleColor" red="0.98077768087387085" green="0.56676393747329712" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,13 +38,26 @@
                                     <action selector="animateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFR-OY-Cs4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="930-Kx-NRy">
+                                <rect key="frame" x="101.5" y="433" width="117" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Stop Animation">
+                                    <color key="titleColor" red="0.98077768089999995" green="0.56676393749999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="animateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aT5-2K-oap"/>
+                                    <action selector="stopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vdw-c4-472"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6j5-Jx-FLS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Yt-Nk-Grf"/>
                             <constraint firstItem="B6d-Wn-FBQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EjE-7V-pYx"/>
-                            <constraint firstItem="6j5-Jx-FLS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Uc1-sS-2PG"/>
+                            <constraint firstItem="930-Kx-NRy" firstAttribute="top" secondItem="B6d-Wn-FBQ" secondAttribute="bottom" constant="21" id="PvG-sq-Vbh"/>
+                            <constraint firstItem="6j5-Jx-FLS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-60" id="Uc1-sS-2PG"/>
                             <constraint firstItem="B6d-Wn-FBQ" firstAttribute="top" secondItem="6j5-Jx-FLS" secondAttribute="bottom" constant="60" id="uYf-fb-FTM"/>
+                            <constraint firstItem="930-Kx-NRy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yLO-T6-q2B"/>
                         </constraints>
                     </view>
                     <connections>
